@@ -35,7 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="itextsharp">
-      <HintPath>..\..\..\..\Visual Studio 2010\Projects\MantesisWpf\MantesisWpf\bin\Debug\itextsharp.dll</HintPath>
+      <HintPath>..\..\..\..\Downloads\itextsharp-all-5.5.0\itextsharp-dll-core\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -57,7 +57,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Fuentes.cs" />
     <Compile Include="Models\EquiposModel.cs" />
+    <Compile Include="Dao\UserResults.cs" />
+    <Compile Include="Models\UserResultsModel.cs" />
+    <Compile Include="ResultadosEnPdf.cs" />
     <Compile Include="Singleton\EquiposSingleton.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
