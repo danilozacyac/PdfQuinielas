@@ -9,12 +9,15 @@ namespace Quiniela.Dao
         private string paterno;
         private string materno;
         private string nombre;
+        private string nombreCompleto;
         private string usuario;
         private string mail;
         private int puntosObtenidos;
         private DateTime fechaRegistro;
         private DateTime fechaUltimoLogin;
         private string password;
+
+        
 
         public int Idusuario
         {
@@ -61,6 +64,18 @@ namespace Quiniela.Dao
             set
             {
                 this.nombre = value;
+            }
+        }
+
+        public string NombreCompleto
+        {
+            get
+            {
+                return this.nombreCompleto;
+            }
+            set
+            {
+                this.nombreCompleto = value;
             }
         }
 

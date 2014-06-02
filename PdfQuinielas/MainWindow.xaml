@@ -1,8 +1,21 @@
 ﻿<Window x:Class="PdfQuinielas.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
         Title="MainWindow"
         Width="525"
-        Height="350">
-    <Grid />
+        Height="350"
+        Loaded="Window_Loaded">
+    <Grid>
+        <telerik:RadComboBox x:Name="RCbxUsuarios"
+                             Width="250"
+                             Margin="43,59,0,0"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             DisplayMemberPath="NombreCompleto"
+                             ItemsSource="{Binding}"
+                             SelectedValuePath="IdUsuario" />
+        <telerik:RadButton x:Name="RBtnResPersonal" Content="Generar Resultados" HorizontalAlignment="Left" Margin="368,59,0,0" VerticalAlignment="Top" Width="111" Click="RBtnResPersonal_Click"/>
+        <telerik:RadButton x:Name="RBtnConcentrado" Content="Generar Concentrado" HorizontalAlignment="Left" Margin="368,129,0,0" VerticalAlignment="Top" Width="111" Click="RBtnConcentrado_Click"/>
+    </Grid>
 </Window>

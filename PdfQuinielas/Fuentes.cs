@@ -9,10 +9,10 @@ namespace PdfQuinielas
 {
     public class Fuentes
     {
-        private static const BaseColor black = new BaseColor(0, 0, 0);
-        private static const BaseColor red = new BaseColor(200, 0, 0);
-        private static const BaseColor green = new BaseColor(0, 200, 0);
-        private static const BaseColor blue = new BaseColor(0, 0, 200);
+        private static readonly BaseColor black = new BaseColor(0, 0, 0);
+        private static readonly BaseColor red = new BaseColor(200, 0, 0);
+        private static readonly BaseColor green = new BaseColor(0, 200, 0);
+        private static readonly BaseColor blue = new BaseColor(0, 0, 200);
 
         public static Font Encabezados
         {
@@ -40,11 +40,20 @@ namespace PdfQuinielas
         /// </summary>
 
 
+        public static Font OtrosDatos
+        {
+            get
+            {
+                Font font = FontFactory.GetFont("Arial", 10, Font.NORMAL, black);
+                return font;
+            }
+        }
+
         public static Font GanadorLocal
         {
             get
             {
-                Font font = FontFactory.GetFont("Arial", 12, Font.BOLD, green);
+                Font font = FontFactory.GetFont("Arial", 10, Font.NORMAL, green);
                 return font;
             }
         }
@@ -53,7 +62,7 @@ namespace PdfQuinielas
         {
             get
             {
-                Font font = FontFactory.GetFont("Arial", 11, Font.NORMAL, red);
+                Font font = FontFactory.GetFont("Arial", 10, Font.NORMAL, red);
                 return font;
             }
         }

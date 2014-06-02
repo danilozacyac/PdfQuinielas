@@ -17,7 +17,7 @@ namespace PdfQuinielas.Models
         {
             ObservableCollection<UserResults> resultados = new ObservableCollection<UserResults>();
 
-            SqlConnection conn = new SqlConnection(connectionString)
+            SqlConnection conn = new SqlConnection(connectionString);
             try
             {
 
