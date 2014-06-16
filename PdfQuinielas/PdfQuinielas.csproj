@@ -65,8 +65,10 @@
     <Compile Include="Fuentes.cs" />
     <Compile Include="Models\EquiposModel.cs" />
     <Compile Include="Dao\UserResults.cs" />
+    <Compile Include="Models\PartidosModel.cs" />
     <Compile Include="Models\UserResultsModel.cs" />
     <Compile Include="Models\UsuariosModel.cs" />
+    <Compile Include="ResultadosConcentradoPdf.cs" />
     <Compile Include="ResultadosEnPdf.cs" />
     <Compile Include="Singleton\EquiposSingleton.cs" />
     <Compile Include="Singleton\UsuariosSingleton.cs" />

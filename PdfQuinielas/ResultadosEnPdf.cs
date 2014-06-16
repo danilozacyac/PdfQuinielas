@@ -36,11 +36,13 @@ namespace PdfQuinielas
                 para.Alignment = 1;
                 myDocument.Add(para);
 
-                para = new Paragraph(usuario.NombreCompleto, Fuentes.OtrosDatos);
+                //para = new Paragraph(usuario.NombreCompleto, Fuentes.OtrosDatos);
+                para = new Paragraph(" ", Fuentes.OtrosDatos);
                 para.Alignment = 0;
                 myDocument.Add(para);
 
-                para = new Paragraph("Fecha de registro: " + usuario.FechaRegistro, Fuentes.OtrosDatos);
+                //para = new Paragraph("Fecha de registro: " + usuario.FechaRegistro, Fuentes.OtrosDatos);
+                para = new Paragraph(" ", Fuentes.OtrosDatos);
                 para.Alignment = 0;
                 myDocument.Add(para);
 
@@ -161,6 +163,7 @@ namespace PdfQuinielas
                 table.AddCell(cell);
 
                 cell = new PdfPCell(new Phrase(user.Ganador, this.GetWinnerFont(user)));
+                //cell = new PdfPCell(new Phrase(" ", this.GetWinnerFont(user)));
                 cell.Colspan = 0;
                 cell.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right
                 table.AddCell(cell);
@@ -223,6 +226,7 @@ namespace PdfQuinielas
                 table.AddCell(cell);
 
                 cell = new PdfPCell(new Phrase(user.GolesLocal.ToString(), Fuentes.OtrosDatos));
+                //cell = new PdfPCell(new Phrase(" ", Fuentes.OtrosDatos));
                 cell.Colspan = 0;
                 cell.Border = 0;
                 cell.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right
@@ -235,6 +239,7 @@ namespace PdfQuinielas
                 table.AddCell(cell);
 
                 cell = new PdfPCell(new Phrase(user.GolesVisita.ToString(), Fuentes.OtrosDatos));
+                //cell = new PdfPCell(new Phrase(" ", Fuentes.OtrosDatos));
                 cell.Colspan = 0;
                 cell.Border = 0;
                 cell.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right
