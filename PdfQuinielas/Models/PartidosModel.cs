@@ -28,7 +28,7 @@ namespace Quiniela.Models
                     conn.Open();
 
                     string selstr = "Select P.*,Pa.Pais ELocal,Pa2.Pais EVisita from Partidos P INNER JOIN Paises Pa ON P.idPaisLocal = Pa.idPais " +
-                                    " INNER JOIN Paises Pa2 On P.idPaisVisita = Pa2.idPais ";
+                                    " INNER JOIN Paises Pa2 On P.idPaisVisita = Pa2.idPais  Order By P.IdPartido";
                     SqlCommand cmd = new SqlCommand(selstr, conn);
                     SqlDataReader reader = cmd.ExecuteReader();
 
@@ -67,12 +67,11 @@ namespace Quiniela.Models
 
             try
             {
-                //string cstr = @"Data Source=WIN-KT1RP3JF2N6\MISERVER;Initial Catalog=QuinielaMundial;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False";
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
 
-                    string selstr = "Select * FROM Pronosticos WHERE IdUsuario = @IdUsuario ORDEr BY P.IdPartido";
+                    string selstr = "Select * FROM Pronosticos WHERE IdUsuario = @IdUsuario ORDEr BY IdPartido";
                     SqlCommand cmd = new SqlCommand(selstr, conn);
                     cmd.Parameters.AddWithValue("@IdUsuario", idusuario);
                     SqlDataReader reader = cmd.ExecuteReader();

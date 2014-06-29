@@ -33,6 +33,15 @@ namespace PdfQuinielas
             }
         }
 
+        public static Font EncabezadoColumnaConcentrado
+        {
+            get
+            {
+                Font font = FontFactory.GetFont("Arial", 6, Font.BOLD, black);
+                return font;
+            }
+        }
+
 
 
         /// <summary>
@@ -45,6 +54,15 @@ namespace PdfQuinielas
             get
             {
                 Font font = FontFactory.GetFont("Arial", 10, Font.NORMAL, black);
+                return font;
+            }
+        }
+
+        public static Font OtrosDatosConcen
+        {
+            get
+            {
+                Font font = FontFactory.GetFont("Arial", 6, Font.NORMAL, black);
                 return font;
             }
         }

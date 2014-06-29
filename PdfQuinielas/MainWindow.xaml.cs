@@ -45,5 +45,11 @@ namespace PdfQuinielas
             ResultadosEnPdf pdf = new ResultadosEnPdf();
             pdf.ConcentradoResultados();
         }
+
+        private void RBtnConcenCompleto_Click(object sender, RoutedEventArgs e)
+        {
+            ResultadosConcentradoPdf pdf = new ResultadosConcentradoPdf();
+            pdf.ResultadosPorUsuario();
+        }
     }
 }

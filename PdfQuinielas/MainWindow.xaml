@@ -17,5 +17,6 @@
                              SelectedValuePath="IdUsuario" />
         <telerik:RadButton x:Name="RBtnResPersonal" Content="Generar Resultados" HorizontalAlignment="Left" Margin="368,59,0,0" VerticalAlignment="Top" Width="111" Click="RBtnResPersonal_Click"/>
         <telerik:RadButton x:Name="RBtnConcentrado" Content="Generar Concentrado" HorizontalAlignment="Left" Margin="368,129,0,0" VerticalAlignment="Top" Width="111" Click="RBtnConcentrado_Click"/>
+        <telerik:RadButton x:Name="RBtnConcenCompleto" Content="Concentrado" HorizontalAlignment="Left" Margin="318,213,0,0" VerticalAlignment="Top" Width="162" Click="RBtnConcenCompleto_Click"/>
     </Grid>
 </Window>
