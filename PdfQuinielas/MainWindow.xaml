@@ -3,13 +3,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
         Title="MainWindow"
-        Width="525"
-        Height="350"
+        Width="700"
+        Height="500"
         Loaded="Window_Loaded">
+    <Window.Background>
+        <ImageBrush ImageSource="Resources/balones.jpg" />
+    </Window.Background>
     <Grid>
         <telerik:RadComboBox x:Name="RCbxUsuarios"
                              Width="250"
-                             Margin="43,59,0,0"
+                             Margin="36,186,0,0"
                              HorizontalAlignment="Left"
                              VerticalAlignment="Top"
                              DisplayMemberPath="NombreCompleto"
@@ -17,24 +20,79 @@
                              SelectedValuePath="IdUsuario" />
         <telerik:RadButton x:Name="RBtnResPersonal"
                            Width="111"
-                           Margin="368,59,0,0"
+                           Margin="65,371,0,0"
                            HorizontalAlignment="Left"
                            VerticalAlignment="Top"
                            Click="RBtnResPersonal_Click"
                            Content="Generar Resultados" />
         <telerik:RadButton x:Name="RBtnConcentrado"
                            Width="111"
-                           Margin="368,129,0,0"
+                           Margin="65,329,0,0"
                            HorizontalAlignment="Left"
                            VerticalAlignment="Top"
                            Click="RBtnConcentrado_Click"
                            Content="Generar Concentrado" />
         <telerik:RadButton x:Name="RBtnConcenCompleto"
                            Width="162"
-                           Margin="318,213,0,0"
+                           Margin="65,288,0,0"
                            HorizontalAlignment="Left"
                            VerticalAlignment="Top"
                            Click="RBtnConcenCompleto_Click"
                            Content="Concentrado" />
+        <telerik:RadComboBox x:Name="RCbxTorneos"
+                             Width="250"
+                             Margin="36,59,0,0"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             DisplayMemberPath="Torneo"
+                             ItemsSource="{Binding}"
+                             SelectedValuePath="IdTorneo"
+                             SelectionChanged="RCbxTorneos_SelectionChanged" />
+        <Label Margin="36,23,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="Torneos"
+               FontSize="16"
+               Foreground="White" />
+        <Label x:Name="LblNumParticipantes"
+               Margin="36,102,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="Torneos"
+               FontSize="16"
+               Foreground="White" />
+        <Label Margin="36,150,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="Participantes:"
+               FontSize="16"
+               Foreground="White" />
+        <telerik:GroupBox Width="333"
+                          Height="149"
+                          Margin="340,32,0,0"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Top"
+                          FontSize="16"
+                          Foreground="White"
+                          Header="Invitaciones">
+            <telerik:RadRibbonButton HorizontalAlignment="Left"
+                                     VerticalAlignment="Top"
+                                     Click="RadRibbonButton_Click"
+                                     Content="Enviar invitaciones"
+                                     LargeImage="Resources/invitation.png"
+                                     Size="Large" />
+        </telerik:GroupBox>
+        <telerik:RadRibbonButton Margin="512,219,0,0"
+                                 HorizontalAlignment="Left"
+                                 VerticalAlignment="Top"
+                                 FontSize="16"
+                                 Foreground="White"
+                                 LargeImage="Resources/group_256.png"
+                                 Size="Large">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Resultados" />
+                <TextBlock Text="Generales" />
+            </StackPanel>
+        </telerik:RadRibbonButton>
     </Grid>
 </Window>

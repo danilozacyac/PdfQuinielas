@@ -1,17 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using PdfQuinielas.Dao;
+using PdfQuinielas.Models;
 using PdfQuinielas.Singleton;
 using Quiniela.Dao;
 
@@ -22,6 +15,9 @@ namespace PdfQuinielas
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Torneos selectedTorneo;
+        private ObservableCollection<Usuarios> listaUsuarios;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -29,7 +25,8 @@ namespace PdfQuinielas
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            RCbxUsuarios.DataContext = UsuariosSingleton.UsuariosSin;
+            
+            RCbxTorneos.DataContext = TorneosSingleton.Torneos;
         }
 
         private void RBtnResPersonal_Click(object sender, RoutedEventArgs e)
@@ -37,19 +34,34 @@ namespace PdfQuinielas
             Usuarios user = RCbxUsuarios.SelectedItem as Usuarios;
 
             ResultadosEnPdf pdf = new ResultadosEnPdf();
-            pdf.ResultadosPorUsuario(user);
+            pdf.ResultadosPorUsuario(user,selectedTorneo);
         }
 
         private void RBtnConcentrado_Click(object sender, RoutedEventArgs e)
         {
             ResultadosEnPdf pdf = new ResultadosEnPdf();
-            pdf.ConcentradoResultados();
+            pdf.ConcentradoResultados(selectedTorneo);
         }
 
         private void RBtnConcenCompleto_Click(object sender, RoutedEventArgs e)
         {
             ResultadosConcentradoPdf pdf = new ResultadosConcentradoPdf();
             pdf.ResultadosPorUsuario();
+        }
+
+        private void RCbxTorneos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedTorneo = RCbxTorneos.SelectedItem as Torneos;
+            listaUsuarios = new UsuariosModel().GetUsuarios(selectedTorneo.IdTorneo);
+
+            RCbxUsuarios.DataContext = listaUsuarios;
+
+            LblNumParticipantes.Content = listaUsuarios.Count + " participantes";
+        }
+
+        private void RadRibbonButton_Click(object sender, RoutedEventArgs e)
+        {
+            MailSender.MailNoAttachment();
         }
     }
 }

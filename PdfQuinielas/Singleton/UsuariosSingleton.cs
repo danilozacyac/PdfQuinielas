@@ -20,7 +20,7 @@ namespace PdfQuinielas.Singleton
             get
             {
                 if (usuarios == null)
-                    usuarios = UsuariosModel.GetUsuarios();
+                    usuarios = new UsuariosModel().GetUsuarios();
 
                 return usuarios;
             }

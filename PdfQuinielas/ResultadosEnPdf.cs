@@ -18,12 +18,12 @@ namespace PdfQuinielas
         //private Paragraph para;
 
 
-        public void ResultadosPorUsuario(Usuarios usuario)
+        public void ResultadosPorUsuario(Usuarios usuario, Torneos torneo)
         {
             myDocument = new iTextSharp.text.Document(PageSize.A4, 50, 50, 50, 50);
             string documento = Path.GetTempFileName() + ".pdf";
 
-            ObservableCollection<UserResults> userResults = UserResultsModel.GetResultadosPorUsuario(usuario.Idusuario);
+            ObservableCollection<UserResults> userResults = UserResultsModel.GetResultadosPorUsuario(usuario.Idusuario,torneo);
 
             try
             {
@@ -32,7 +32,7 @@ namespace PdfQuinielas
                 myDocument.Open();
 
 
-                Paragraph para = new Paragraph("Quiniela Brasil 2014", Fuentes.Encabezados);
+                Paragraph para = new Paragraph("Quiniela " + torneo.Torneo, Fuentes.Encabezados);
                 para.Alignment = 1;
                 myDocument.Add(para);
 
@@ -48,7 +48,8 @@ namespace PdfQuinielas
 
                 myDocument.Add(this.GetUserResultTable(userResults));
 
-                myDocument.Add(this.GetResultadosMexico(userResults));
+                if(torneo.IdTorneo == 1)
+                    myDocument.Add(this.GetResultadosMexico(userResults));
 
 
                 
@@ -64,7 +65,7 @@ namespace PdfQuinielas
             }
         }
 
-        public void ConcentradoResultados()
+        public void ConcentradoResultados(Torneos torneo)
         {
             myDocument = new iTextSharp.text.Document(PageSize.A4, 50, 50, 50, 50);
             string documento = Path.GetTempFileName() + ".pdf";
@@ -80,11 +81,11 @@ namespace PdfQuinielas
                 foreach (Usuarios usuario in UsuariosSingleton.UsuariosSin)
                 {
 
-                    ObservableCollection<UserResults> userResults = UserResultsModel.GetResultadosPorUsuario(usuario.Idusuario);
+                    ObservableCollection<UserResults> userResults = UserResultsModel.GetResultadosPorUsuario(usuario.Idusuario,torneo);
 
                     if (userResults.Count() > 0)
                     {
-                        Paragraph para = new Paragraph("Quiniela Copa América 2015", Fuentes.Encabezados);
+                        Paragraph para = new Paragraph("Quiniela " + torneo.Torneo, Fuentes.Encabezados);
                         para.Alignment = 1;
                         myDocument.Add(para);
 
@@ -119,14 +120,14 @@ namespace PdfQuinielas
 
         private PdfPTable GetUserResultTable(ObservableCollection<UserResults> userResults)
         {
-            PdfPTable table = new PdfPTable(5);
+            PdfPTable table = new PdfPTable(6);
             //table.TotalWidth = 400;
             table.WidthPercentage = 100;
 
             table.SpacingBefore = 20f;
             table.SpacingAfter = 30f;
 
-            string[] encabezado = { "Partido", "Fecha", "Local", "Visitante", "Ganador"};
+            string[] encabezado = { "Partido", "Fecha", "Local", "Visitante", "Ganador","Marcador" };
             PdfPCell cell;
 
             foreach (string cabeza in encabezado)
@@ -168,7 +169,11 @@ namespace PdfQuinielas
                 cell.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right
                 table.AddCell(cell);
 
-                
+                cell = new PdfPCell(new Phrase(user.GolesLocal + " - " + user.GolesVisita, this.GetWinnerFont(user)));
+                //cell = new PdfPCell(new Phrase(" ", this.GetWinnerFont(user)));
+                cell.Colspan = 0;
+                cell.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right
+                table.AddCell(cell);
 
                 consecPartido++;
             }

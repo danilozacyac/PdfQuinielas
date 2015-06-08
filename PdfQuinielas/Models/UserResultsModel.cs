@@ -60,7 +60,7 @@ namespace PdfQuinielas.Models
             return resultados;
         }
 
-        public static ObservableCollection<UserResults> GetResultadosPorUsuario(int idUsuario)
+        public static ObservableCollection<UserResults> GetResultadosPorUsuario(int idUsuario,Torneos torneo)
         {
             ObservableCollection<UserResults> userResults = new ObservableCollection<UserResults>();
             SqlConnection conn = new SqlConnection(connectionString);
@@ -71,21 +71,22 @@ namespace PdfQuinielas.Models
                 {
                     conn.Open();
 
-                    string selstr = "SELECT * FROM PdfUsuarios Where IdUsuario = @IdUsuario AND IdTorneo = 2 Order By Fecha";
+                    string selstr = "SELECT * FROM PdfUsuarios Where IdUsuario = @IdUsuario AND IdTorneo = @IdTorneo Order By Fecha";
                     SqlCommand cmd = new SqlCommand(selstr, conn);
                     cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);
+                    cmd.Parameters.AddWithValue("@IdTorneo", torneo.IdTorneo);
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
                     {
                         UserResults user = new UserResults();
-                        user.IdUsuario = reader["IdUsuario"] as int? ?? -1;
+                        user.IdUsuario = Convert.ToInt32(reader["IdUsuario"]);
                         user.Fecha = Convert.ToDateTime(reader["fecha"]);
                         user.Local = reader["Local"].ToString();
                         user.Visitante = reader["Visitante"].ToString();
                         user.Ganador = reader["Ganador"].ToString();
-                        user.GolesLocal = reader["GolesLocal"] as int? ?? -1;
-                        user.GolesVisita = reader["GolesVisita"] as int? ?? -1;
+                        user.GolesLocal = Convert.ToInt32(reader["GolesLocal"]);
+                        user.GolesVisita = Convert.ToInt32(reader["GolesVisita"]);
 
                         userResults.Add(user);
 
