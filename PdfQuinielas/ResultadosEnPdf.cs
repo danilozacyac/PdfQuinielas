@@ -84,7 +84,7 @@ namespace PdfQuinielas
 
                     if (userResults.Count() > 0)
                     {
-                        Paragraph para = new Paragraph("Quiniela Brasil 2014", Fuentes.Encabezados);
+                        Paragraph para = new Paragraph("Quiniela Copa América 2015", Fuentes.Encabezados);
                         para.Alignment = 1;
                         myDocument.Add(para);
 
@@ -98,7 +98,7 @@ namespace PdfQuinielas
 
                         myDocument.Add(this.GetUserResultTable(userResults));
 
-                        myDocument.Add(this.GetResultadosMexico(userResults));
+                        //myDocument.Add(this.GetResultadosMexico(userResults));
 
                         myDocument.NewPage();
                     }

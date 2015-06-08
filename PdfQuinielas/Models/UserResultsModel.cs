@@ -71,7 +71,7 @@ namespace PdfQuinielas.Models
                 {
                     conn.Open();
 
-                    string selstr = "SELECT * FROM PdfUsuarios Where IdUsuario = @IdUsuario Order By Fecha";
+                    string selstr = "SELECT * FROM PdfUsuarios Where IdUsuario = @IdUsuario AND IdTorneo = 2 Order By Fecha";
                     SqlCommand cmd = new SqlCommand(selstr, conn);
                     cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);
                     SqlDataReader reader = cmd.ExecuteReader();

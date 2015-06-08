@@ -15,8 +15,26 @@
                              DisplayMemberPath="NombreCompleto"
                              ItemsSource="{Binding}"
                              SelectedValuePath="IdUsuario" />
-        <telerik:RadButton x:Name="RBtnResPersonal" Content="Generar Resultados" HorizontalAlignment="Left" Margin="368,59,0,0" VerticalAlignment="Top" Width="111" Click="RBtnResPersonal_Click"/>
-        <telerik:RadButton x:Name="RBtnConcentrado" Content="Generar Concentrado" HorizontalAlignment="Left" Margin="368,129,0,0" VerticalAlignment="Top" Width="111" Click="RBtnConcentrado_Click"/>
-        <telerik:RadButton x:Name="RBtnConcenCompleto" Content="Concentrado" HorizontalAlignment="Left" Margin="318,213,0,0" VerticalAlignment="Top" Width="162" Click="RBtnConcenCompleto_Click"/>
+        <telerik:RadButton x:Name="RBtnResPersonal"
+                           Width="111"
+                           Margin="368,59,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Click="RBtnResPersonal_Click"
+                           Content="Generar Resultados" />
+        <telerik:RadButton x:Name="RBtnConcentrado"
+                           Width="111"
+                           Margin="368,129,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Click="RBtnConcentrado_Click"
+                           Content="Generar Concentrado" />
+        <telerik:RadButton x:Name="RBtnConcenCompleto"
+                           Width="162"
+                           Margin="318,213,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Click="RBtnConcenCompleto_Click"
+                           Content="Concentrado" />
     </Grid>
 </Window>
