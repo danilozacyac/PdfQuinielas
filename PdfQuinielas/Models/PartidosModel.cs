@@ -422,5 +422,58 @@ namespace Quiniela.Models
                 connection.Close();
             }
         }
+
+
+
+        public static void SetPartido(Partidos partido)
+        {
+            string cstr = ConfigurationManager.ConnectionStrings["Quiniela"].ConnectionString;
+            SqlConnection thisConnection = new SqlConnection(cstr);
+
+            //Create Command object
+            SqlCommand nonqueryCommand = thisConnection.CreateCommand();
+
+            try
+            {
+                // Open Connection
+                thisConnection.Open();
+                Console.WriteLine("Connection Opened");
+
+                // Create INSERT statement with named parameters
+                nonqueryCommand.CommandText = "INSERT  INTO Partidos (Fecha, idPaisLocal,idPaisVisita,IdTorneo) VALUES (@Fecha, @idPaisLocal,@idPaisVisita,@IdTorneo)";
+
+                // Add Parameters to Command Parameters collection
+                nonqueryCommand.Parameters.Add("@Fecha", SqlDbType.Date, 0);
+                nonqueryCommand.Parameters.Add("@idPaisLocal", SqlDbType.Int, 0);
+                nonqueryCommand.Parameters.Add("@idPaisVisita", SqlDbType.Int, 0);
+                nonqueryCommand.Parameters.Add("@IdTorneo", SqlDbType.Int, 0);
+
+                // Prepare command for repeated execution
+                nonqueryCommand.Prepare();
+
+                // Data to be inserted
+                nonqueryCommand.Parameters["@Fecha"].Value = partido.Fecha;
+                nonqueryCommand.Parameters["@idPaisLocal"].Value = partido.IdPaisLocal;
+                nonqueryCommand.Parameters["@idPaisVisita"].Value = partido.IdPaisVisita;
+                nonqueryCommand.Parameters["@IdTorneo"].Value = partido.IdTorneo;
+
+                Console.WriteLine("Executing {0}", nonqueryCommand.CommandText);
+                Console.WriteLine("Number of rows affected : {0}", nonqueryCommand.ExecuteNonQuery());
+            }
+            catch (SqlException ex)
+            {
+                // Display error
+                Console.WriteLine("Error: " + ex.ToString());
+            }
+            finally
+            {
+                // Close Connection
+                thisConnection.Close();
+                Console.WriteLine("Connection Closed");
+            }
+
+
+        }
+
     }
 }
