@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using PdfQuinielas.Dao;
-using PdfQuinielas.Models;
 using Quiniela.Dao;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
@@ -17,7 +16,7 @@ namespace PdfQuinielas
     {
         private iTextSharp.text.Document myDocument;
 
-        public void ResultadosPorUsuario()
+        public void ResultadosPorUsuario(Torneos torneo)
         {
             Document myDocument = new Document(new Rectangle(288f, 144f), 10, 10, 10, 10);
             myDocument.SetPageSize(iTextSharp.text.PageSize.A4.Rotate());
@@ -34,7 +33,7 @@ namespace PdfQuinielas
                 myDocument.Open();
 
 
-                Paragraph para = new Paragraph("Quiniela Brasil 2014", Fuentes.Encabezados);
+                Paragraph para = new Paragraph("Quiniela " + torneo.Torneo, Fuentes.Encabezados);
                 para.Alignment = 1;
                 myDocument.Add(para);
 
@@ -79,11 +78,7 @@ namespace PdfQuinielas
             }
         }
 
-        private void PrintUserList()
-        {
-        }
-
-        private PdfPTable GetUserResultTable()
+       private PdfPTable GetUserResultTable()
         {
             PdfPTable table = new PdfPTable(49);
             //table.TotalWidth = 400;
@@ -153,11 +148,6 @@ namespace PdfQuinielas
 
 
             }
-
-
-
-            int consecPartido = 1;
-            
 
             return table;
         }

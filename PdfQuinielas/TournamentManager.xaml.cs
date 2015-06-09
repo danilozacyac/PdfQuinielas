@@ -1,17 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-
-using Telerik.Windows.Controls;
+using PdfQuinielas.Dao;
+using PdfQuinielas.Models;
+using PdfQuinielas.Singleton;
 
 namespace PdfQuinielas
 {
@@ -20,9 +12,39 @@ namespace PdfQuinielas
     /// </summary>
     public partial class TournamentManager
     {
+        private Torneos torneo;
+        private bool isUpdating;
+
         public TournamentManager()
         {
             InitializeComponent();
+            torneo = new Torneos();
+        }
+
+        public TournamentManager(Torneos torneo)
+        {
+            InitializeComponent();
+            this.torneo = torneo;
+            isUpdating = true;
+        }
+
+        private void RadWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = torneo;
+        }
+
+        private void RBtnAceptar_Click(object sender, RoutedEventArgs e)
+        {
+            if (isUpdating)
+            {
+                new TorneosModel().UpdateTorneo(torneo);
+            }
+            else
+            {
+                new TorneosModel().SetNewTorneo(torneo);
+                TorneosSingleton.Torneos.Add(torneo);
+            }
+            this.Close();
         }
     }
 }

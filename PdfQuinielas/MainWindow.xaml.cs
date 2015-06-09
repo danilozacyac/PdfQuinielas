@@ -46,7 +46,7 @@ namespace PdfQuinielas
         private void RBtnConcenCompleto_Click(object sender, RoutedEventArgs e)
         {
             ResultadosConcentradoPdf pdf = new ResultadosConcentradoPdf();
-            pdf.ResultadosPorUsuario();
+            pdf.ResultadosPorUsuario(selectedTorneo);
         }
 
         private void RCbxTorneos_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -62,6 +62,24 @@ namespace PdfQuinielas
         private void RadRibbonButton_Click(object sender, RoutedEventArgs e)
         {
             MailSender.MailNoAttachment();
+        }
+
+        private void BtnUpdateTorneo_Click(object sender, RoutedEventArgs e)
+        {
+            TournamentManager update = new TournamentManager(selectedTorneo);
+            update.ShowDialog();
+        }
+
+        private void BtnAddTorneo_Click(object sender, RoutedEventArgs e)
+        {
+            TournamentManager add = new TournamentManager();
+            add.ShowDialog();
+        }
+
+        private void BtnAgregaPartido_Click(object sender, RoutedEventArgs e)
+        {
+            AddPartidoPorTorneo add = new AddPartidoPorTorneo(selectedTorneo);
+            add.ShowDialog();
         }
     }
 }

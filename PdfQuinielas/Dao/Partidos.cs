@@ -6,7 +6,7 @@ namespace Quiniela.Dao
     public class Partidos
     {
         private int idPartido;
-        private DateTime fecha;
+        private DateTime? fecha;
         private int idPaisLocal;
         private string paisLocal;
         private int idPaisVisita;
@@ -16,7 +16,7 @@ namespace Quiniela.Dao
         private int idPaisGanador;
         private string paisGanador;
         private int tipoAcierto;
-
+        private int idTorneo;
         
 
         
@@ -33,7 +33,7 @@ namespace Quiniela.Dao
             }
         }
 
-        public DateTime Fecha
+        public DateTime? Fecha
         {
             get
             {
@@ -152,5 +152,19 @@ namespace Quiniela.Dao
                 this.tipoAcierto = value;
             }
         }
+
+
+        public int IdTorneo
+        {
+            get
+            {
+                return this.idTorneo;
+            }
+            set
+            {
+                this.idTorneo = value;
+            }
+        }
+
     }
 }

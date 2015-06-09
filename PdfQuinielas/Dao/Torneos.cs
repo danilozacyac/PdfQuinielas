@@ -8,6 +8,7 @@ namespace PdfQuinielas.Dao
         private int idTorneo;
         private string torneo;
         private int year;
+        private DateTime? fechaInicio;
 
         public int IdTorneo
         {
@@ -44,5 +45,19 @@ namespace PdfQuinielas.Dao
                 this.year = value;
             }
         }
+
+        public DateTime? FechaInicio
+        {
+            get
+            {
+                return this.fechaInicio;
+            }
+            set
+            {
+                this.fechaInicio = value;
+            }
+        }
+
+        
     }
 }

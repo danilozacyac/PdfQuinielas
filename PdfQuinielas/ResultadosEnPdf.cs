@@ -36,6 +36,10 @@ namespace PdfQuinielas
                 para.Alignment = 1;
                 myDocument.Add(para);
 
+                para = new Paragraph(usuario.Nombre + " " + usuario.Paterno + " " +usuario.Materno, Fuentes.Encabezados);
+                para.Alignment = 1;
+                myDocument.Add(para);
+
                 //para = new Paragraph(usuario.NombreCompleto, Fuentes.OtrosDatos);
                 para = new Paragraph(" ", Fuentes.OtrosDatos);
                 para.Alignment = 0;

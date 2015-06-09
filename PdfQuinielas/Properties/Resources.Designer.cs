@@ -63,6 +63,16 @@ namespace PdfQuinielas.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1425495918_schedule {
+            get {
+                object obj = ResourceManager.GetObject("_1425495918_schedule", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap balones {
             get {
                 object obj = ResourceManager.GetObject("balones", resourceCulture);

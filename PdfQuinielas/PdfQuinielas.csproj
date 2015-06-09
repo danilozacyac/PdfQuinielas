@@ -37,6 +37,9 @@
     <Reference Include="itextsharp">
       <HintPath>..\..\..\..\Downloads\itextsharp-all-5.5.0\itextsharp-dll-core\itextsharp.dll</HintPath>
     </Reference>
+    <Reference Include="ScjnUtilities">
+      <HintPath>..\..\ScjnUtilities\ScjnUtilities\bin\Debug\ScjnUtilities.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -159,6 +162,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\trophy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\1425495918_schedule.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
