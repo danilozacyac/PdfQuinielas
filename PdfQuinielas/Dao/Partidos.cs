@@ -17,9 +17,8 @@ namespace Quiniela.Dao
         private string paisGanador;
         private int tipoAcierto;
         private int idTorneo;
-        
+        private string partidoString;
 
-        
 
         public int IdPartido
         {
@@ -165,6 +164,20 @@ namespace Quiniela.Dao
                 this.idTorneo = value;
             }
         }
+
+
+        public string PartidoString
+        {
+            get
+            {
+                return this.partidoString;
+            }
+            set
+            {
+                this.partidoString = value;
+            }
+        }
+
 
     }
 }

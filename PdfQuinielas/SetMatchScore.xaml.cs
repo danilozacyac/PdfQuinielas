@@ -1,19 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using PdfQuinielas.Dao;
 using Quiniela.Dao;
 using Quiniela.Models;
-using Telerik.Windows.Controls;
 
 namespace PdfQuinielas
 {
@@ -53,7 +43,7 @@ namespace PdfQuinielas
             PartidosModel.UpdatePronosticosPuntosGanadosConMarcador(partido);
             PartidosModel.UpdateGruposInfo(partido, 1, partido.IdPaisLocal, torneo);
             PartidosModel.UpdateGruposInfo(partido, 2, partido.IdPaisVisita, torneo);
-            PartidosModel.UpdateDiferenciaGoles();
+            PartidosModel.UpdateDiferenciaGoles(torneo);
         }
     }
 }

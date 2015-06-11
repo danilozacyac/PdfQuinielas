@@ -73,6 +73,16 @@ namespace PdfQuinielas.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap attatchment_128 {
+            get {
+                object obj = ResourceManager.GetObject("attatchment_128", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap balones {
             get {
                 object obj = ResourceManager.GetObject("balones", resourceCulture);
@@ -96,6 +106,16 @@ namespace PdfQuinielas.Properties {
         internal static System.Drawing.Bitmap invitation {
             get {
                 object obj = ResourceManager.GetObject("invitation", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap perInfo {
+            get {
+                object obj = ResourceManager.GetObject("perInfo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

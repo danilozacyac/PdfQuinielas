@@ -118,8 +118,9 @@ namespace Quiniela.Models
                     conn.Open();
 
                     string selstr = "Select P.*,Pa.Pais ELocal,Pa2.Pais EVisita from Partidos P INNER JOIN Paises Pa ON P.idPaisLocal = Pa.idPais " +
-                                    " INNER JOIN Paises Pa2 On P.idPaisVisita = Pa2.idPais WHERE P.IdPaisGanador IS NULL AND idTorneo = " + torneo.IdTorneo;
+                                    " INNER JOIN Paises Pa2 On P.idPaisVisita = Pa2.idPais WHERE P.IdPaisGanador IS NULL AND idTorneo = @IdTorneo ORDER BY P.Fecha";
                     SqlCommand cmd = new SqlCommand(selstr, conn);
+                    cmd.Parameters.AddWithValue("@IdTorneo", torneo.IdTorneo);
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
@@ -135,6 +136,7 @@ namespace Quiniela.Models
                         partido.PaisLocal = reader["ELocal"].ToString();
                         partido.PaisVisita = reader["EVisita"].ToString();
                         partido.IdPaisGanador = reader["IdPaisGanador"] as int? ?? -23;
+                        partido.PartidoString = partido.PaisLocal + " vs " + partido.PaisVisita;
                         
 
                         listaPartidos.Add(partido);

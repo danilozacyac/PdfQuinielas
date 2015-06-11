@@ -3,8 +3,10 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using Microsoft.Win32;
 using PdfQuinielas.Dao;
 using PdfQuinielas.Models;
+using PdfQuinielas.Reportes;
 using PdfQuinielas.Singleton;
 using Quiniela.Dao;
 
@@ -84,7 +86,25 @@ namespace PdfQuinielas
 
         private void BtnSetScore_Click(object sender, RoutedEventArgs e)
         {
+            SetMatchScore score = new SetMatchScore(selectedTorneo);
+            score.ShowDialog();
+        }
 
+        private void BtnEnviarConcentrado_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            bool? userClickOk = dialog.ShowDialog();
+
+            if (userClickOk == true)
+            {
+                MailSender.EnviarConcentradoQuiniela(dialog.FileName, selectedTorneo);
+            }
+        }
+
+        private void BtnParticipantes_Click(object sender, RoutedEventArgs e)
+        {
+            ListaParticipantes participantes = new ListaParticipantes(selectedTorneo);
+            participantes.ResultadosPorUsuario();
         }
     }
 }

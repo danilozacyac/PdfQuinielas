@@ -37,6 +37,10 @@
     <Reference Include="itextsharp">
       <HintPath>..\..\..\..\Downloads\itextsharp-all-5.5.0\itextsharp-dll-core\itextsharp.dll</HintPath>
     </Reference>
+    <Reference Include="ScjnUtilities, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ScjnUtilities\ScjnUtilities\bin\Debug\ScjnUtilities.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -85,6 +89,7 @@
     <Compile Include="Models\TorneosModel.cs" />
     <Compile Include="Models\UserResultsModel.cs" />
     <Compile Include="Models\UsuariosModel.cs" />
+    <Compile Include="Reportes\ListaParticipantes.cs" />
     <Compile Include="ResultadosConcentradoPdf.cs" />
     <Compile Include="ResultadosEnPdf.cs" />
     <Compile Include="SetMatchScore.xaml.cs">
@@ -172,6 +177,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\striker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\attatchment_128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\perInfo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

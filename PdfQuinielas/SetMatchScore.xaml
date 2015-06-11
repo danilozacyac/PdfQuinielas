@@ -4,7 +4,7 @@
                    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
                    Width="376"
                    Height="300"
-                   Header="SetMatchScore"
+                   Header="SetMatchScore" WindowStartupLocation="CenterScreen"
                    Loaded="RadWindow_Loaded">
     <Grid>
         <telerik:RadComboBox x:Name="RCbxPartido"
