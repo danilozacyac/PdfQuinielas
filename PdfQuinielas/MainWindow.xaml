@@ -57,6 +57,16 @@
                             <TextBlock HorizontalAlignment="Center" Text="Partidos" />
                         </StackPanel>
                     </telerik:RadRibbonButton>
+                    <telerik:RadRibbonButton x:Name="BtnSetScore"
+                                             HorizontalAlignment="Left"
+                                             VerticalAlignment="Top"
+                                             LargeImage="Resources/striker.png"
+                                             Size="Large" Click="BtnSetScore_Click">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock HorizontalAlignment="Center" Text="Establecer" />
+                            <TextBlock HorizontalAlignment="Center" Text="Marcador" />
+                        </StackPanel>
+                    </telerik:RadRibbonButton>
                 </telerik:RadRibbonGroup>
                 <telerik:RadRibbonGroup Header="Resultados" />
             </telerik:RadRibbonTab>

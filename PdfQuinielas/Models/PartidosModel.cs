@@ -536,7 +536,7 @@ namespace Quiniela.Models
         /// Actualiza la diferencia de goles de todos los partidos
         /// </summary>
         /// <param name="partido"></param>
-        public static void UpdateDiferenciaGoles()
+        public static void UpdateDiferenciaGoles(Torneos torneo)
         {
             SqlConnection connection = new SqlConnection(connectionString);
 
@@ -544,10 +544,11 @@ namespace Quiniela.Models
             {
                 connection.Open();
                 String query = "UPDATE G SET Diferencia = t2.NuevaDiferencia 	FROM Grupos G JOIN " +
-		                        "(SELECT idPais, GolesFavor - GolesContra as NuevaDiferencia FROM Grupos t2 GROUP BY idPais,GolesFavor,GolesContra) t2 " +
-		                        "ON G.IdPais = t2.IdPais";
+                                "(SELECT idPais, GolesFavor - GolesContra as NuevaDiferencia FROM Grupos t2 WHERE IdTorneo = @IdTorneo  GROUP BY idPais,GolesFavor,GolesContra) t2 " +
+                                "ON G.IdPais = t2.IdPais WHERE IdTorneo = @IdTorneo ";
 
                 SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@IdTorneo", torneo.IdTorneo);
                 command.ExecuteNonQuery();
 
                 command.Dispose();

@@ -81,5 +81,10 @@ namespace PdfQuinielas
             AddPartidoPorTorneo add = new AddPartidoPorTorneo(selectedTorneo);
             add.ShowDialog();
         }
+
+        private void BtnSetScore_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
