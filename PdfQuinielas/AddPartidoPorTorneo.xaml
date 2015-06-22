@@ -3,10 +3,11 @@
                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
                    Width="499"
-                   WindowStartupLocation="CenterScreen"
-                   Height="346" ResizeMode="NoResize"
+                   Height="346"
                    Header="AddPartidoPorTorneo"
-                   Loaded="Window_Loaded">
+                   Loaded="Window_Loaded"
+                   ResizeMode="NoResize"
+                   WindowStartupLocation="CenterScreen">
     <Grid>
         <telerik:RadComboBox x:Name="RCbxEquipoLocal"
                              Width="143"
@@ -44,7 +45,8 @@
                                    Margin="157,36,0,0"
                                    HorizontalAlignment="Left"
                                    VerticalAlignment="Top"
-                                   DateTimeWatermarkContent="Fecha del partido" />
+                                   DateTimeWatermarkContent="Fecha del partido"
+                                   TimeInterval="0:30:0" />
         <Label Margin="157,10,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
@@ -67,7 +69,8 @@
                            Height="52"
                            Margin="190,242,0,0"
                            HorizontalAlignment="Left"
-                           VerticalAlignment="Top" Click="RBtnContinuar_Click">
+                           VerticalAlignment="Top"
+                           Click="RBtnContinuar_Click">
             <StackPanel Orientation="Vertical">
                 <TextBlock HorizontalAlignment="Center" Text="Guardar y" />
                 <TextBlock HorizontalAlignment="Center" Text="agregar otro" />

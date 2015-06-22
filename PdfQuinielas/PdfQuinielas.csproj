@@ -80,11 +80,15 @@
     <Compile Include="AddPartidoPorTorneo.xaml.cs">
       <DependentUpon>AddPartidoPorTorneo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CrearGrupo.xaml.cs">
+      <DependentUpon>CrearGrupo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dao\Torneos.cs" />
     <Compile Include="Fuentes.cs" />
     <Compile Include="MailSender.cs" />
     <Compile Include="Models\EquiposModel.cs" />
     <Compile Include="Dao\UserResults.cs" />
+    <Compile Include="Models\GruposModel.cs" />
     <Compile Include="Models\PartidosModel.cs" />
     <Compile Include="Models\TorneosModel.cs" />
     <Compile Include="Models\UserResultsModel.cs" />
@@ -104,6 +108,10 @@
     <Page Include="AddPartidoPorTorneo.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CrearGrupo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -183,6 +191,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\perInfo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\grupo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

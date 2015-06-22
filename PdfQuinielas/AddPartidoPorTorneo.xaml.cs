@@ -33,7 +33,7 @@ namespace PdfQuinielas
         private void RBtnGuardar_Click(object sender, RoutedEventArgs e)
         {
             Partidos partido = new Partidos();
-            partido.Fecha = RdtFechaP.SelectedDate;
+            partido.Fecha = RdtFechaP.SelectedValue;
             partido.IdPaisLocal = Convert.ToInt32(RCbxEquipoLocal.SelectedValue);
             partido.IdPaisVisita = Convert.ToInt32(RCbxEquipoVisita.SelectedValue);
             partido.IdTorneo = selectedTorneo.IdTorneo;
@@ -46,7 +46,7 @@ namespace PdfQuinielas
         private void RBtnContinuar_Click(object sender, RoutedEventArgs e)
         {
             Partidos partido = new Partidos();
-            partido.Fecha = RdtFechaP.SelectedDate;
+            partido.Fecha = RdtFechaP.SelectedValue;
             partido.IdPaisLocal = Convert.ToInt32(RCbxEquipoLocal.SelectedValue);
             partido.IdPaisVisita = Convert.ToInt32(RCbxEquipoVisita.SelectedValue);
             partido.IdTorneo = selectedTorneo.IdTorneo;

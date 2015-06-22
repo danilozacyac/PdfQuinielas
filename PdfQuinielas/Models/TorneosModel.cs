@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Windows;
 using PdfQuinielas.Dao;
-using ScjnUtilities;
+//using ScjnUtilities;
 
 namespace PdfQuinielas.Models
 {
@@ -64,7 +64,7 @@ namespace PdfQuinielas.Models
 
             try
             {
-                torneo.IdTorneo = DataBaseUtilities.GetNextIdForUse("Torneos", "IdTorneo", connection);
+                //torneo.IdTorneo = DataBaseUtilities.GetNextIdForUse("Torneos", "IdTorneo", connection);
 
 
                 string sqlCadena = "SELECT * FROM Torneos WHERE IdTorneo = 0";
@@ -102,14 +102,14 @@ namespace PdfQuinielas.Models
                 string methodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 
                 MessageBox.Show("Error ({0}) : {1}" + ex.Source + ex.Message, methodName, MessageBoxButton.OK, MessageBoxImage.Warning);
-                ErrorUtilities.SetNewErrorMessage(ex, methodName, 0);
+                //ErrorUtilities.SetNewErrorMessage(ex, methodName, 0);
             }
             catch (Exception ex)
             {
                 string methodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 
                 MessageBox.Show("Error ({0}) : {1}" + ex.Source + ex.Message, methodName, MessageBoxButton.OK, MessageBoxImage.Warning);
-                ErrorUtilities.SetNewErrorMessage(ex, methodName, 0);
+                //ErrorUtilities.SetNewErrorMessage(ex, methodName, 0);
             }
             finally
             {
@@ -161,14 +161,14 @@ namespace PdfQuinielas.Models
                 string methodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 
                 MessageBox.Show("Error ({0}) : {1}" + ex.Source + ex.Message, methodName, MessageBoxButton.OK, MessageBoxImage.Warning);
-                ErrorUtilities.SetNewErrorMessage(ex, methodName, 0);
+                //ErrorUtilities.SetNewErrorMessage(ex, methodName, 0);
             }
             catch (Exception ex)
             {
                 string methodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 
                 MessageBox.Show("Error ({0}) : {1}" + ex.Source + ex.Message, methodName, MessageBoxButton.OK, MessageBoxImage.Warning);
-                ErrorUtilities.SetNewErrorMessage(ex, methodName, 0);
+                //ErrorUtilities.SetNewErrorMessage(ex, methodName, 0);
             }
             finally
             {

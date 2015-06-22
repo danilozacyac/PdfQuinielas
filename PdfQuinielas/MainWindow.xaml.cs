@@ -106,5 +106,11 @@ namespace PdfQuinielas
             ListaParticipantes participantes = new ListaParticipantes(selectedTorneo);
             participantes.ResultadosPorUsuario();
         }
+
+        private void BtnAddGrupo_Click(object sender, RoutedEventArgs e)
+        {
+            CrearGrupo create = new CrearGrupo(selectedTorneo);
+            create.ShowDialog();
+        }
     }
 }

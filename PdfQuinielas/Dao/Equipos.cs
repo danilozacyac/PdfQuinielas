@@ -9,12 +9,17 @@ namespace Quiniela.Dao
     {
         private int idEquipo;
         private string equipo;
-
-        public Equipos(int idEquipo, string equipo)
+        private int idConfederacion;
+        private int tipo;
+        
+        public Equipos(int idEquipo, string equipo, int idConfederacion, int tipo)
         {
             this.idEquipo = idEquipo;
             this.equipo = equipo;
+            this.idConfederacion = idConfederacion;
+            this.tipo = tipo;
         }
+
         public int IdEquipo
         {
             get
@@ -36,6 +41,30 @@ namespace Quiniela.Dao
             set
             {
                 this.equipo = value;
+            }
+        }
+
+        public int IdConfederacion
+        {
+            get
+            {
+                return this.idConfederacion;
+            }
+            set
+            {
+                this.idConfederacion = value;
+            }
+        }
+
+        public int Tipo
+        {
+            get
+            {
+                return this.tipo;
+            }
+            set
+            {
+                this.tipo = value;
             }
         }
     }

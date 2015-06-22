@@ -44,12 +44,24 @@
                             <TextBlock HorizontalAlignment="Center" Text="torneo" />
                         </StackPanel>
                     </telerik:RadRibbonButton>
+                    <telerik:RadRibbonButton x:Name="BtnAddGrupo"
+                                             HorizontalAlignment="Left"
+                                             VerticalAlignment="Top"
+                                             Click="BtnAddGrupo_Click"
+                                             LargeImage="Resources/grupo.png"
+                                             Size="Large">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock HorizontalAlignment="Center" Text="Crear" />
+                            <TextBlock HorizontalAlignment="Center" Text="grupo" />
+                        </StackPanel>
+                    </telerik:RadRibbonButton>
                     <telerik:RadRibbonButton x:Name="BtnParticipantes"
                                              HorizontalAlignment="Left"
                                              VerticalAlignment="Top"
+                                             Click="BtnParticipantes_Click"
                                              Content="Participantes"
                                              LargeImage="Resources/perinfo.png"
-                                             Size="Large" Click="BtnParticipantes_Click"/>
+                                             Size="Large" />
                 </telerik:RadRibbonGroup>
                 <telerik:RadRibbonGroup Header="Partidos">
                     <telerik:RadRibbonButton x:Name="BtnAgregaPartido"
@@ -79,8 +91,9 @@
                     <telerik:RadRibbonButton x:Name="BtnEnviarConcentrado"
                                              HorizontalAlignment="Left"
                                              VerticalAlignment="Top"
+                                             Click="BtnEnviarConcentrado_Click"
                                              LargeImage="Resources/attatchment_128.png"
-                                             Size="Large" Click="BtnEnviarConcentrado_Click">
+                                             Size="Large">
                         <StackPanel Orientation="Vertical">
                             <TextBlock HorizontalAlignment="Center" Text="Enviar" />
                             <TextBlock HorizontalAlignment="Center" Text="Concentrado" />

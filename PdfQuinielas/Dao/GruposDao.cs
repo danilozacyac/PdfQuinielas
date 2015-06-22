@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace Quiniela.Dao
@@ -14,7 +15,16 @@ namespace Quiniela.Dao
         private int gContra;
         private int gDiferencia;
         private int puntos;
+
+        public GruposDao() { }
+
+        public GruposDao(char grupo)
+        {
+            this.grupo = grupo;
+        }
+
         
+
         public char Grupo
         {
             get
@@ -122,5 +132,34 @@ namespace Quiniela.Dao
                 this.puntos = value;
             }
         }
+
+        ObservableCollection<GruposDao> listaGrupos ;
+        public ObservableCollection<GruposDao> ListaGrupos
+        {
+            get
+            {
+                return this.listaGrupos;
+            }
+            set
+            {
+                this.listaGrupos = value;
+            }
+        }
+        public ObservableCollection<GruposDao> GetGrupos()
+        {
+            listaGrupos = new ObservableCollection<GruposDao>();
+
+            listaGrupos.Add(new GruposDao('A'));
+            listaGrupos.Add(new GruposDao('B'));
+            listaGrupos.Add(new GruposDao('C'));
+            listaGrupos.Add(new GruposDao('D'));
+            listaGrupos.Add(new GruposDao('E'));
+            listaGrupos.Add(new GruposDao('F'));
+            listaGrupos.Add(new GruposDao('G'));
+            listaGrupos.Add(new GruposDao('H'));
+
+            return listaGrupos;
+        }
+    
     }
 }

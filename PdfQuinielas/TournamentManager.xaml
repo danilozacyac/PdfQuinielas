@@ -25,11 +25,11 @@
                VerticalAlignment="Top"
                Content="Fecha de Inicio:" />
         <telerik:RadDatePicker x:Name="DtpFInicio"
-                                   Width="237"
-                                   Margin="33,138,0,0"
-                                   HorizontalAlignment="Left"
-                                   VerticalAlignment="Top"
-                                   SelectedValue="{Binding FechaInicio}" />
+                               Width="237"
+                               Margin="33,138,0,0"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Top"
+                               SelectedValue="{Binding FechaInicio}" />
         <telerik:RadButton x:Name="RBtnAceptar"
                            Width="87"
                            Height="25"

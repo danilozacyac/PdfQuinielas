@@ -589,7 +589,7 @@ namespace Quiniela.Models
                 nonqueryCommand.CommandText = "INSERT  INTO Partidos (Fecha, idPaisLocal,idPaisVisita,IdTorneo) VALUES (@Fecha, @idPaisLocal,@idPaisVisita,@IdTorneo)";
 
                 // Add Parameters to Command Parameters collection
-                nonqueryCommand.Parameters.Add("@Fecha", SqlDbType.Date, 0);
+                nonqueryCommand.Parameters.Add("@Fecha", SqlDbType.DateTime, 0);
                 nonqueryCommand.Parameters.Add("@idPaisLocal", SqlDbType.Int, 0);
                 nonqueryCommand.Parameters.Add("@idPaisVisita", SqlDbType.Int, 0);
                 nonqueryCommand.Parameters.Add("@IdTorneo", SqlDbType.Int, 0);
